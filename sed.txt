@@ -1,0 +1,8 @@
+To delete trailing whitespaces at the end of each lines:
+# sed 's/[ \t]*$//' filename > filename_notrailingspace
+
+To remove all blank lines in a given file:
+# sed '/^$/d' filename > filename_noblankspace
+
+To remove all leading and trailing whitespaces of each lines in a given file:
+$ cat filename | sed 's/^[ \t]*//;s/[ \t]*$//' > filename_nospace

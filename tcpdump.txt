@@ -1,0 +1,18 @@
+Rotating tcpdump logs
+Syntax:
+tcpdump -i <InterfaceName> -C 100 -s0 -W <No of files to rotate> -w  /<tcpdump folderpath>
+
+Option explanation:
+-i :  used to specify the Interface or Source IP Address
+-C :  specifies in size in MB
+-c :  number of count packets
+-s :  specifies the packet length to capture
+-W :  specifies the number of files to rotate through once the file size specified in -C is reached.
+-w :  Path to capture the tcpdump file with the extension .pcap.
+
+Some examples using these options:
+
+# tcpdump -i eth0 -C 100 -s0 -W 4 -w /tcpdumpfolder/filexyz.pcap
+# tcpdump -i eth0 -c 1000 -s0 -W 4 -w /tcpdumpfolder/filexyz.pcap
+# tcpdump -i eth0 -C 10 -s0 -W 3 -w /dump/server_$(date +%m-%d-%Y-%H:%M).pcap
+# tcpdump -i any host 10.10.1.2 or host 10.10.1.5 -C 100 -s0 -W 5 -w /tcpdump/fileabc.pcap
